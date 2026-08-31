@@ -34,10 +34,23 @@
 
             <!--<p>Current under maintainance. Please wait patiently, things will eventually get better. :)</p>-->
             <!--<iframe src="https://adonisstickmangithub.github.io/burst-era-expanded/project/" width="720" height="400" title="project"></iframe>-->
+            
+        <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
 
-            <div id="player">
-                <video src="stream.m3u8" controls autoplay>
-            </div>
+        <video id="video" controls muted autoplay></video>
+
+        <script>
+            var video = document.getElementById('video');
+            var videoSrc = 'stream.m3u8';
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+            }
+            else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+            }
+        </script>
 
         <h2>AUGUST REVISION!</h2>
         <p>Hello everyone! It's been a long time. So basically there was a stream made using the penguinmod engine that was released a few hours before June 10th, 2026, but I had to cancel it because it was too buggy especially during what was suppose to be the day of the 15th anniversary sneak peek of Thundercats (2011). The project fully concluded by on July 30th. So that's why I had to rely on the VLC stream for now on. As always please visit the Discord server is you wanted to further updates and development for the channel.</p>
